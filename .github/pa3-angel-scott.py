@@ -1,6 +1,6 @@
 # Programmer: Angel Scott
 # Course: CS151, Dr. Rajeev
-# Date: 10/24/21
+# Date: 10/25/21
 # Programming Assignment: 3
 # Program Input: Choice of Sport
 # Program Inputs for Football: Completions, Passing Attempts, Passing Yards, Touchdown Passes, Interceptions
@@ -21,7 +21,7 @@ def quidditch(goal, snitch):
     elif snitch == "no":
         score = 10*goal
     else:
-        score = 0
+        return "Error. Invalid answer."
     return score
 
 # Define function for calculating the final score for a gymnast on any apparatus.
@@ -60,7 +60,11 @@ def main():
                 print("Error. Rating is 0.")
             else:
                 qb_rating = football(qb_completions, qb_attempts, qb_yards, qb_touchdowns, qb_interceptions)
-                print("The rating is:", qb_rating)
+                print("The rating is: %.2f"%qb_rating)
+                if qb_rating >= 158.3:
+                    print("The quarterback is a perfect passer")
+                else:
+                    print("The quarterback is not a perfect passer")
 
     # Calculations and input if user choice is quidditch
     elif choice_of_sport == "quidditch":
@@ -81,8 +85,9 @@ def main():
         execution4 = input("Enter the fourth execution score")
         execution5 = input("Enter the fifth execution score")
         difficulty = input("Enter the difficulty score")
-        if (execution1.isdigit() == False) or (execution2.isdigit() == False) or (execution3.isdigit() == False) or \
-                (execution4.isdigit() == False or (execution5.isdigit() == False) or (difficulty.isdigit() == False)):
+        if (execution1.isdigit() == False) or (execution2.isdigit() == False) or (execution3.isdigit() == False) \
+                or (execution4.isdigit() == False or (execution5.isdigit() == False) or \
+                    (difficulty.isdigit() == False)):
             print("Error. Score is 0")
         else:
             execution1 = int(execution1)
